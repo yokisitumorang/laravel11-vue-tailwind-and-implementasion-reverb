@@ -19,7 +19,6 @@
                     easing='linear'
                 />
               </div>
-              
           </div>
           <div class="p-12 grid-flow-row flex grid-cols-2">
             <div class="w-full h-full">
@@ -29,10 +28,8 @@
               <apexchart height="300"  type="line" :options="chartOptions" :series="series" ></apexchart>
             </div>
             <div>
-              <!-- <apexchart height="300" curve="smooth" type="line" :options="chartOptions" :series="series2" ></apexchart> -->
             </div>
           </div>
-          <!-- <button @click="sendMessage" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition ease-in-out duration-150">Send Message</button> -->
       </div>
     </div>
       
@@ -83,32 +80,10 @@ export default {
                 speed: 2000
             }
           },
-          
-      //     brush: {
-      //   enabled: false,
-      //   target: undefined,
-      //   autoScaleYaxis: false
-      // }
         },
         stroke: {
           curve: 'smooth'
         },
-        
-        // plotOptions: {
-        //   bar: {
-        //     vertical: true,
-        //     dataLabels: {
-        //       total: {
-        //         enabled: true,
-        //         offsetX: 0,
-        //         style: {
-        //           fontSize: '13px',
-        //           fontWeight: 900
-        //         }
-        //       }
-        //     }
-        //   },
-        // },
         colors:['#672ab8','#375ab8'],
         xaxis: {
           categories: ['a'],
@@ -127,12 +102,10 @@ export default {
         {
           name: "series-1",
           data: [30, 40, 35, 50, 49, 60, 70, 91],
-          // data2: [30, 40, 35, 50, 49, 60, 70, 91],
         },
         {
           name: "series-2",
           data: [30, 40, 35, 50, 49, 60, 70, 91],
-          // data2: [30, 40, 35, 50, 49, 60, 70, 91],
         },
       ],
 
@@ -140,41 +113,12 @@ export default {
         {
           name: "series-1",
           data: [30, 40, 35, 50, 49, 60, 70, 91],
-          // data2: [30, 40, 35, 50, 49, 60, 70, 91],
         },
       ],
         }
     },
 
-    // mounted () {
-
-    //     Echo.channel('dashboard')
-    //         .listen('.data.updated', (e) => {
-    //         console.log(e);
-    //         console.log('berhasil terima');
-
-    //     // window.Echo.channel('dashboard')
-    //     //     .listen('.data.updated', (e) => {
-    //     //     console.log(e);
-    //     //     console.log('berhasil terima');
-    //     // Append the new message to the chatroom
-    //     // const messages = document.getElementById('messages');
-    //     // const messageElement = document.createElement('p');
-    //     // messageElement.innerText = e.message;
-    //     // messages.appendChild(messageElement);
-    //     });
-
-        
-    // },
-  
     mounted() {
-    // if (typeof window.Echo !== 'dashboard') {
-    //   window.Echo.channel('dashboard')
-    //     .listen('.YourEvent', (e) => {
-    //       console.log(e);
-    //     });
-    // }
-
     window.Echo = new Echo({
     broadcaster: 'reverb',
     key: import.meta.env.VITE_REVERB_APP_KEY,
@@ -185,19 +129,14 @@ export default {
     enabledTransports: ['ws', 'wss'],
 });
 
-// if (typeof window.Echo !== 'undefined') {
       window.Echo.channel('dashboard')
         .listen('.data.updated', (e) => {
           console.log(e);
           console.log('berhasil');
-          // console.log(e.data);
-          // this.datacount = e.data
           this.updateddatacount = e.data
           this.series[0].data = e.array_data
           this.series[1].data = e.array_data2
-          // this.updateData()
         });
-    // }
     
   },
 
@@ -206,14 +145,10 @@ export default {
       return number.toFixed(0);
     },
     sendMessage() {
-      // Your code here
-    //   console.log('test');
       Axios.post('/store', { message: 'test' })
         .then(response => {
             console.log(response.data);
             console.log(response);
-            // Clear the input field after sending
-            // messageInput.value = '';
         })
         .catch(error => console.error(error));
     console.log('sent messages');
@@ -225,34 +160,9 @@ export default {
             console.log(response.data);
             this.datacount = response.data
             console.log(response);
-            // Clear the input field after sending
-            // messageInput.value = '';
         })
         .catch(error => console.error(error));
     }
   }
-
-    // methods: {
-
-    //     sendMessage(){
-            
-    //         // console.log('test');
-    //       Axios.get(route('get.allprovince'))
-    //       .then(res => {
-    //         this.searchCity.optiondata[0].options = res.data
-    //       }).catch(error => {
-    //         console.log(error.response.data.errors)
-    //       })
-        
-    //     }
-
-    //     // submit(){
-    //     //     this.$inertia.post(this.route('final.quotation.store'), this.form, {
-    //     //         onStart: () => this.sending = false,
-    //     //         onFinish: () => this.sending = false,
-    //     //       })
-    //     // },
-    // },
-
 }
 </script>
