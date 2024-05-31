@@ -3,12 +3,13 @@
     "type": "module",
     "scripts": {
         "dev": "vite --host 192.168.100.137",
-        "build": "vite build"
+        "build": "vite build && copyfiles -u 1 dist/*.* public/"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^5.0.4",
         "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
+        "copyfiles": "^2.4.1",
         "laravel-echo": "^1.16.1",
         "laravel-vite-plugin": "^1.0.4",
         "postcss": "^8.4.38",
@@ -20,6 +21,9 @@
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/progress": "^0.2.7",
-        "vue": "^3.4.27"
+        "apexcharts": "^3.49.1",
+        "vue": "^3.4.27",
+        "vue-number-animation": "^2.0.2",
+        "vue3-apexcharts": "^1.5.3"
     }
 }

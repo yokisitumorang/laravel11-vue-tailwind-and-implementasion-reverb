@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @routes
+    {{-- <link href="{{ vite_asset('public\build\assets\app-CBm0KfsU.css') }}" rel="stylesheet"> --}}
+    
+    {{-- when use npm run dev enable this, after build, comment this --}}
     @vite('resources/css/app.css')
 
     @vite('resources/js/app.js') 

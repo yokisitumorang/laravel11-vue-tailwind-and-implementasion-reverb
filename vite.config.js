@@ -3,6 +3,11 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
+
+    // i add this when i want to deploy to server that use TLS https like ALB or etc
+    // server: {
+    //     https: true
+    // },
     plugins: [
         laravel({
             // input: ['resources/css/app.css'],

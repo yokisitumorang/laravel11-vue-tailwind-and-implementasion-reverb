@@ -39,7 +39,26 @@ class TransactionController extends Controller
             ]
         ); 
         DB::commit();
-        UpdateData::dispatch('createddata');
+        // UpdateData::dispatch('createddata');
+        return response()->json(['success' => true, 'message' => 'data updated']);
+
+    }
+
+    public function refreshdata(){
+        // DB::beginTransaction();
+        // $dateAndTime = Carbon::now()->format('Y-m-d H:i:s'); 
+
+        // DB::table('users')->insert(
+        //     [
+        //         'name'           => 'test',
+        //         'email'           => Str::random(10).'@gmail.com',
+        //         'email_verified_at'                         => null,
+        //         'password'                        => 'test',
+        //         'created_at'                        => $dateAndTime
+        //     ]
+        // ); 
+        // DB::commit();
+        UpdateData::dispatch('refreshdata');
         return response()->json(['success' => true, 'message' => 'data updated']);
 
     }

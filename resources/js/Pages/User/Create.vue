@@ -1,6 +1,7 @@
 <template>
     <div>
-        <button @click="saveData" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition ease-in-out duration-150">Create New Daatasd dfs</button>
+        <button @click="saveDataOnly" class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-700 transition ease-in-out duration-150">Create New Daatasd dfs</button>
+        <button @click="saveandrefreshData" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition ease-in-out duration-150">RefreshData</button>
     </div>
 </template>
 
@@ -78,10 +79,24 @@ export default {
   },
 
     methods: {
-        saveData() {
+      saveDataOnly() {
       // Your code here
     //   console.log('test');
       Axios.post('/storeuser', { message: 'test' })
+        .then(response => {
+            console.log(response.data);
+            console.log(response);
+            // Clear the input field after sending
+            // messageInput.value = '';
+        })
+        .catch(error => console.error(error));
+    console.log('sent messages');
+    },
+
+    saveandrefreshData() {
+      // Your code here
+    //   console.log('test');
+      Axios.get('/refreshdata', { message: 'test' })
         .then(response => {
             console.log(response.data);
             console.log(response);

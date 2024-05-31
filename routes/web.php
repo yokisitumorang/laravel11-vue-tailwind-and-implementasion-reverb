@@ -35,5 +35,6 @@ Route::get(
 Route::post('/store', [TransactionController::class, 'store'])->name('store.data');
 
 Route::post('/storeuser', [TransactionController::class, 'storeuser'])->name('storeuser.data');
+Route::get('/refreshdata', [TransactionController::class, 'refreshdata'])->name('refreshdata.data');
 
 Route::get('/get/data', [TransactionController::class, 'getdata'])->name('get.data');
