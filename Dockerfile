@@ -65,5 +65,5 @@ RUN echo "\
     " > /usr/local/bin/start.sh
 # RUN php artisan optimize:clear
 EXPOSE 80
-EXPOSE 8080
+EXPOSE 8081
 CMD [ "sh", "/usr/local/bin/start.sh" ]

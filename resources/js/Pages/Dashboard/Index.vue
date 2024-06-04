@@ -22,10 +22,10 @@
           </div>
           <div class="p-12 grid-flow-row flex grid-cols-2">
             <div class="w-full h-full">
-              <apexchart height="300"  type="line" :options="chartOptions" :series="series" ></apexchart>
+              <!-- <apexchart height="300"  type="line" :options="chartOptions" :series="series" ></apexchart> -->
             </div>
             <div class="w-full h-full">
-              <apexchart height="300"  type="line" :options="chartOptions" :series="series" ></apexchart>
+              <!-- <apexchart height="300"  type="line" :options="chartOptions" :series="series" ></apexchart> -->
             </div>
             <div>
             </div>
@@ -45,10 +45,10 @@ import Axios from 'axios'
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 import NumberAnimation from "vue-number-animation";
-import VueApexCharts from "vue3-apexcharts";
+// import VueApexCharts from "vue3-apexcharts";
 export default {
     components: {
-      apexchart: VueApexCharts,
+      // apexchart: VueApexCharts,
       NumberAnimation
     },
     props: {

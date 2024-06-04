@@ -9,7 +9,7 @@
     {{-- <link href="{{ vite_asset('public\build\assets\app-CBm0KfsU.css') }}" rel="stylesheet"> --}}
     
     {{-- when use npm run dev enable this, after build, comment this --}}
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
 
     @vite('resources/js/app.js') 
     {{-- <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
